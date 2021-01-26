@@ -1,10 +1,122 @@
-.header-wrapper {
-  text-align: center;
-  background-color: red;
-  height: 100%;
-  padding-top: 25px;
-
-  hr {
+hr {
     border: 5px solid black;
+    margin-top: 0px;
+  }
+
+header {
+  position: relative;
+  background-color: #ff1c1c;
+
+  .logo-pokemon {
+    margin-right: auto;
+    height: 100px;
+    @media (min-width: 992px) {
+      width: 200px;
+    }
+    @media (max-width: 992px) {
+      width: 150px;
+    }
+    padding: 10px 5%;
+  }
+}
+
+@media (min-width: 992px) {
+  ul {
+    position: absolute;
+    right: 10px;
+    top: 15px;
+
+    li {
+      list-style: none;
+      display: inline-block;
+      float: right;
+      font-weight: 700;
+      padding: 20px 20px;
+      margin: 0px 20px;
+      background-color: #000000;
+      border-radius: 5px;
+      box-shadow: 5px 5px 5px #000000;
+      transition: 1s;
+    }
+
+    li:hover {
+      padding: 30px 30px;
+    }
+
+    a {
+      color: #ffffff;
+    }
+  }
+}
+
+@media (max-width: 991px) {
+  .toggle-button {
+    display: inline-block;
+    position: absolute;
+    top: 35px;
+    right: 15px;
+    background-color: #ffffff;
+    padding: 5px;
+    border-radius: 5px;
+    cursor: pointer;
+    box-shadow: 5px 5px 5px #000000;
+
+    [class*=bar1], [class*=bar2], [class*=bar3] {
+      align-content: space-between;
+      width: 35px;
+      height: 5px;
+      background-color: #333;
+      margin: 6px 0px;
+      transition: 0.5s;
+    }
+
+    .bar1open {
+      transform: rotate(-45deg) translate(-5px, 5px);
+    }
+
+    .bar2open {
+      display: none;
+    }
+    .bar3open {
+      transform: rotate(45deg) translate(-1px, -5px);
+    }
+  }
+
+  nav{
+    width: 100%;
+    position: relative;
+
+    ul {
+      position: absolute;
+      right: 0;
+      //display: none; //can't animate display
+      opacity: 0;
+      margin: 0;
+      text-align: center;
+      transition: 0.3s ease-in-out;
+
+      li {
+        width: 100%;
+        border-radius: 0;
+        list-style: none;
+        display: inline-block;
+        float: right;
+        font-weight: 700;
+        padding: 20px 20px;
+        background-color: #000000;
+      }
+
+      a {
+        text-decoration: none;
+        color: #ffffff;
+      }
+      a:active {
+        color: #ff1c1c;
+      }
+    }
+    .open {
+      //display: block;
+      opacity: 1;
+    }
   }
 }

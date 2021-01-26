@@ -1,6 +1,8 @@
+import './styles.scss';
+
 function Card(props) {
   return (
-    <div>
+    <div className="card-wrapper">
       <div>{props.name}</div>
     </div>
   );

@@ -1,4 +1,5 @@
-## Creating a list of my (Johanes) favorite Pokemons
+## Pokemons
+##Made by Johanes Ronaldo
 ### `npm start`
 
 Runs the app in the development mode.\

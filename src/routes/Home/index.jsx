@@ -9,12 +9,21 @@ function Home() {
 
   return (
     <div className="home-wrapper">
+
       <Header />
+
       <div className="search-field">
         <input type="search" placeholder="Search here..."/>
         <button type="button">Search</button>
       </div>
-      <Card name="TEST" />
+      {/*<Card name="TEST" />*/}
+
+      {/*<div className="home-card">*/}
+      {/*  <Card name="TEST" />*/}
+      {/*  <Card name="TEST" />*/}
+      {/*  <Card name="TEST" />*/}
+      {/*</div>*/}
+
     </div>
   );
 }
