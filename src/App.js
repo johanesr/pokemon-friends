@@ -1,17 +1,28 @@
-import { Fragment } from 'react';
-import { BrowserRouter } from 'react-router-dom';
-import { renderRoutes } from 'react-router-config';
-import routes from './routes';
+import { Switch, Route, BrowserRouter } from 'react-router-dom';
 
-import './App.css';
+import Header from "./components/Header";
+
+import PokemonList from './containers/PokemonList';
+import PokemonDetail from './containers/PokemonDetail';
 
 function App() {
   return (
-    <Fragment>
-      <BrowserRouter>
-        {renderRoutes(routes)}
-      </BrowserRouter>
-    </Fragment>
+    <BrowserRouter>
+
+      <Header/>
+
+      <Switch>
+        <Route exact path="/">
+          <PokemonList />
+        </Route>
+        <Route path="/list">
+          <PokemonList />
+        </Route>
+        <Route  path="/detail/:pokemonName">
+          <PokemonDetail />
+        </Route>
+      </Switch>
+    </BrowserRouter>
   );
 }
 

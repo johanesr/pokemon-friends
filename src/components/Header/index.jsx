@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 import './styles.scss';
 
 function Header() {
@@ -7,12 +8,12 @@ function Header() {
   return (
     <>
       <header>
-        <a href="">
+        <Link to="/">
           <img
             className="logo-pokemon"
             src="https://upload.wikimedia.org/wikipedia/commons/9/98/International_Pok%C3%A9mon_logo.svg"
             alt="Pokemon-Logo"/>
-        </a>
+        </Link>
 
         <div className="toggle-button" onClick={() => {setOpenBurger(openBurger ? false : true )}}>
           <div className={`bar1${openBurger ? 'open' : ''}`}></div>
@@ -22,14 +23,14 @@ function Header() {
 
         <nav>
           <ul className={openBurger ? 'open' : ''}>
-            <li><a href="/list">Pokemon List</a></li>
-            <li><a href="/detail">Pokemon Detail</a></li>
-            <li><a href="/mylist">My Pokemons</a></li>
+            <li><Link to="/list">Pokemon List</Link></li>
+            <li><Link to="/mylist">My Pokemons</Link></li>
           </ul>
         </nav>
 
+        <hr/>
+
       </header>
-      <hr/>
     </>
   );
 }
