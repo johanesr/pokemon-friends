@@ -16,7 +16,7 @@ function PokemonDetail() {
         setPokemonMoves(res.data.abilities);
       })
       .catch(err => {console.log(err)});
-  }, [])
+  })
 
   function onClickCapture() {
     // Set the Capture Probability returns 0 or 1

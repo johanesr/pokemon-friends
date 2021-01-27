@@ -1,5 +1,6 @@
-const initialState = {
-  isMobile: window.innerWidth <= 991,
-  searchField: ''
-}
+import { combineReducers } from 'redux';
+import app from './module/reducer';
 
+export default combineReducers({
+  app
+});

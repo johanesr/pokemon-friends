@@ -16,9 +16,9 @@ function Header() {
         </Link>
 
         <div className="toggle-button" onClick={() => {setOpenBurger(openBurger ? false : true )}}>
-          <div className={`bar1${openBurger ? 'open' : ''}`}></div>
-          <div className={`bar2${openBurger ? 'open' : ''}`}></div>
-          <div className={`bar3${openBurger ? 'open' : ''}`}></div>
+          <div className={`${openBurger ? 'bar1open' : 'bar1'}`}></div>
+          <div className={`${openBurger ? 'bar2open' : 'bar2'}`}></div>
+          <div className={`${openBurger ? 'bar3open' : 'bar3'}`}></div>
         </div>
 
         <nav>
