@@ -1,6 +1,6 @@
 import { combineReducers } from 'redux';
-import app from './module/reducer';
+import {searchPokemon, requestPokemon} from './module/reducer';
 
 export default combineReducers({
-  app
+  searchPokemon, requestPokemon
 });

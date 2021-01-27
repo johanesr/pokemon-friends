@@ -30,6 +30,7 @@
       border-radius: 15px;
       background-color: lightgreen;
       text-align: center;
+      box-shadow: 5px 5px 5px #000000;
     }
 
     .pokemon-detail-card:hover {
@@ -57,10 +58,29 @@
         border: 5px solid #696969;
         border-radius: 25px;
         padding: 10px 0px;
-        font-size: 15px;
+        font-size: 10px;
         font-weight: 700;
         font-family: 'Press Start 2P', cursive;
       }
+    }
+
+    input {
+      border-radius: 5px;
+      margin-right: 10px;
+    }
+
+    .capture-button {
+      border-radius: 5px;
+      margin-bottom: 20px;
+    }
+
+    .capture-button:active {
+      height: 30px;
+      width: 100px;
+    }
+
+    .description-text{
+      margin-bottom: 20px;
     }
   }
 }
@@ -72,8 +92,8 @@
 }
 
 @keyframes example {
-  0%   {background-color: forestgreen}
-  50%  {background-color: darkgreen}
-  100% {background-color: forestgreen}
+  0%   {background-color: lightgreen}
+  50%  {background-color: #FFA07A}
+  100% {background-color: lightgreen}
 
 }

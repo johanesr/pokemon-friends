@@ -1,33 +1,39 @@
-import {useState, useEffect} from 'react';
-import {Link} from 'react-router-dom';
-import axios from 'axios';
+import { useEffect } from 'react';
+import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
+import { setSearchField, requestPokemons } from '../../redux/module/actions';
 
 import './styles.scss';
 
-function PokemonList() {
-  const [pokemons, setPokemons] = useState([]);
-  const [searchField, setSearchField] = useState('');
+const mapStateToProps = (state) => {
+  return {
+    searchField: state.searchPokemon.searchField,
+    pokemons: state.requestPokemon.pokemons,
+    isLoading: state.requestPokemon.isLoading
+  }
+}
 
+const mapDispatchToProps = (dispatch) => {
+  return {
+    onSearchChange: (event) => dispatch(setSearchField(event.target.value)),
+    onRequestPokemons: () => dispatch(requestPokemons())
+  }
+}
+
+function PokemonList(props) {
   useEffect( () => {
-    axios.get('https://pokeapi.co/api/v2/pokedex/2')
-      .then(res => {setPokemons(res.data.pokemon_entries);})
-      .catch(err => {console.log(err)});
+    props.onRequestPokemons();
   }, [])
 
-  function onChangeSearch(e) {
-    setSearchField(e.target.value);
-    console.log(filteredPokemon);
-  }
-
-  const filteredPokemon = pokemons.filter(pokemons => {
-    return pokemons.pokemon_species.name.includes(searchField);
+  const filteredPokemon = props.pokemons.filter(pokemons => {
+    return pokemons.pokemon_species.name.includes(props.searchField);
   })
 
 
   return (
     <div className="pokemon-list-wrapper">
       <div className="search-field">
-        <input type="search" placeholder="Search here..." onChange={onChangeSearch}/>
+        <input type="search" placeholder="Search here..." onChange={props.onSearchChange}/>
       </div>
 
       <div className="pokemon-list-card-wrapper">
@@ -44,4 +50,4 @@ function PokemonList() {
   );
 }
 
-export default PokemonList;
+export default connect(mapStateToProps, mapDispatchToProps)(PokemonList);

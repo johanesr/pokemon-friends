@@ -10,38 +10,24 @@ export const initialState = {
   error: ''
 };
 
-const ACTION_HANDLERS = {
-  [types.CHANGE_SEARCH_FIELD]: (state, action) => {
-    return {
-      ...state,
-      searchField: action.payload
-    };
-  },
-  [types.REQUEST_POKEMON_PENDING]: (state) => {
-    return {
-      ...state,
-      isLoading: true
-    }
-  },
-  [types.REQUEST_POKEMON_SUCCESS]: (state, action) => {
-    return {
-      ...state,
-      pokemons: action.payload,
-      isLoading: false
-    }
-  },
-  [types.REQUEST_POKEMON_FAILED]: (state, action) => {
-    return {
-      ...state,
-      error: action.payload,
-      isLoading: false
-    }
+export const searchPokemon = (state = initialState, action = {}) => {
+  switch(action.type) {
+    case types.CHANGE_SEARCH_FIELD:
+      return {...state, searchField: action.payload}
+    default:
+      return state
   }
-};
+}
 
-export default (state = initialState, action = {}) => {
-  const handler = ACTION_HANDLERS[action.type];
-
-  // If handler does not exist (NotFound), return the initial state
-  return handler ? handler(state, action) : state;
+export const requestPokemon = (state = initialState, action = {}) => {
+  switch(action.type) {
+    case types.REQUEST_POKEMON_PENDING:
+      return {...state, isLoading: true}
+    case types.REQUEST_POKEMON_SUCCESS:
+      return {...state, pokemons: action.payload, isLoading: false}
+    case types.REQUEST_POKEMON_FAILED:
+      return {...state, error: action.payload, isLoading: false}
+    default:
+      return state
+  }
 };

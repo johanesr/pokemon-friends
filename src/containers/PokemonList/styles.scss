@@ -28,6 +28,7 @@
       text-align: center;
       cursor: pointer;
       transition: 0.3s linear;
+      box-shadow: 5px 5px 5px #000000;
     }
 
     .pokemon-list-card:hover {
@@ -49,6 +50,6 @@
 @keyframes cardAnimation {
   0%   {background-color: forestgreen}
   50%  {background-color: darkgreen}
-  100% {ackground-color: forestgreen}
+  100% {background-color: forestgreen}
 
 }

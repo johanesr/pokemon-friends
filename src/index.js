@@ -5,12 +5,20 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { Provider } from 'react-redux';
 import ReduxStore from './redux/store';
+import { ApolloClient, ApolloProvider, InMemoryCache } from '@apollo/client';
+
+const apolloClient = new ApolloClient({
+  uri: 'https://graphql-pokeapi.vercel.app/api/graphql',
+  cache: new InMemoryCache()
+});
 
 ReactDOM.render(
   <React.StrictMode>
-    <Provider store={ReduxStore}>
-      <App />
-    </Provider>
+    <ApolloProvider client={apolloClient}>
+      <Provider store={ReduxStore}>
+        <App />
+      </Provider>
+    </ApolloProvider>
   </React.StrictMode>,
   document.getElementById('root')
 );
