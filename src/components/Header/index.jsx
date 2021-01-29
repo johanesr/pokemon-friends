@@ -23,8 +23,8 @@ function Header() {
 
         <nav>
           <ul className={openBurger ? 'open' : ''}>
-            <li><Link to="/mylist">My Pokemons</Link></li>
             <li><Link to="/list">Pokemon List</Link></li>
+            <li><Link to="/my-list">My Pokemons</Link></li>
           </ul>
         </nav>
 

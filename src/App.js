@@ -2,8 +2,9 @@ import { Switch, Route, BrowserRouter } from 'react-router-dom';
 
 import Header from "./components/Header";
 
-import PokemonList from './containers/PokemonList';
-import PokemonDetail from './containers/PokemonDetail';
+import PokemonList from './routes/PokemonList';
+import PokemonDetail from './routes/PokemonDetail';
+import MyList from './routes/MyList';
 
 function App() {
   return (
@@ -20,6 +21,9 @@ function App() {
         </Route>
         <Route  path="/detail/:pokemonName">
           <PokemonDetail />
+        </Route>
+        <Route  path="/my-list">
+          <MyList />
         </Route>
       </Switch>
     </BrowserRouter>
