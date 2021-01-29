@@ -45,6 +45,27 @@
       text-transform: capitalize;
     }
   }
+
+  .pagination {
+    display: flex;
+    justify-content: center;
+    margin: 20px auto;
+
+    div {
+      color: black;
+      float: left;
+      padding: 8px 16px;
+      text-decoration: none;
+      transition: background-color .3s;
+      border: 2px solid #000000;
+    }
+
+    div:active {
+      background-color: #4CAF50;
+      color: white;
+      border: 2px solid #4CAF50;
+    }
+  }
 }
 
 @keyframes cardAnimation {
