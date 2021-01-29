@@ -2,7 +2,7 @@
   position: relative;
 
   .pokemon-detail-card-wrapper {
-    margin: auto 20px;
+    margin: 20px;
     text-align: center;
     min-width: 200px;
     min-height: 200px;
@@ -48,7 +48,12 @@
 
     .abilities-wrapper {
       display: grid;
-      grid-template-columns: repeat(2, minmax(50px, 1fr));
+      @media (min-width: 992px) {
+        grid-template-columns: repeat(5, minmax(50px, 1fr));
+      }
+      @media (max-width: 992px) {
+        grid-template-columns: repeat(2, minmax(50px, 1fr));
+      }
       grid-gap: 20px;
       margin: 20px;
 
