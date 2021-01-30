@@ -24,7 +24,7 @@ function PokemonList(props) {
   const [pokemons, setPokemons] = useState([])
 
   let gqlVariable = {
-    limit:20,
+    limit:151,
     offset:0
   };
 

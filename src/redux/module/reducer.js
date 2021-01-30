@@ -4,7 +4,7 @@ export const initialState = {
   display: {
     isMobile: window.innerWidth <= 991
   },
-  searchField: '',
+  searchField: ''
 };
 
 export const searchPokemon = (state = initialState, action = {}) => {
