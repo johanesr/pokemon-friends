@@ -1,42 +1,4 @@
-.my-list-wrapper {
-  .my-list-card-wrapper {
-    display: grid;
-    @media (min-width: 992px) {
-      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-    }
-    @media (max-width: 992px) {
-      grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
-    }
-    grid-gap: 20px;
-    margin: 10px 50px;
-
-    a{
-      color: #000000;
-      text-decoration: none;
-    }
-
-    .pokemon-list-card {
-      border: 2px solid black;
-      border-radius: 15px;
-      background-color: lightgreen;
-      text-align: center;
-      cursor: pointer;
-      transition: 0.3s linear;
-      box-shadow: 5px 5px 5px #000000;
-    }
-
-    .pokemon-list-card:hover {
-      animation-name: cardAnimation;
-      animation-duration: 0.5s;
-      animation-iteration-count: infinite;
-      transform: scale(1.1,1.1);
-    }
-
-    .pokemon-name {
-      font-weight: 700;
-      padding: 20px 0px;
-      color: #000000;
-      text-transform: capitalize;
-    }
-  }
+.not-found-wrapper {
+  margin: 20px auto;
+  text-align: center;
 }

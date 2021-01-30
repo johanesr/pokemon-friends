@@ -71,13 +71,6 @@ function PokemonList(props) {
           ))}
           </div>
 
-          <div className="pagination">
-            <div>First</div>
-            <div>❮</div>
-            <div>❯</div>
-            <div>Last</div>
-          </div>
-
         </>
       }
 
