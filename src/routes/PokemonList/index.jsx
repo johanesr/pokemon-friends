@@ -22,8 +22,9 @@ const mapDispatchToProps = (dispatch) => {
 
 function PokemonList(props) {
   const [pokemons, setPokemons] = useState([])
+
   let gqlVariable = {
-    limit:151,
+    limit:20,
     offset:0
   };
 
