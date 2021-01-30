@@ -5,6 +5,7 @@ import Header from "./components/Header";
 import PokemonList from './routes/PokemonList';
 import PokemonDetail from './routes/PokemonDetail';
 import MyList from './routes/MyList';
+import NotFound from './routes/NotFound';
 
 function App() {
   return (
@@ -24,6 +25,9 @@ function App() {
         </Route>
         <Route  path="/my-list">
           <MyList />
+        </Route>
+        <Route path="*">
+          <NotFound />
         </Route>
       </Switch>
     </BrowserRouter>

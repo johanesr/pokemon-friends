@@ -47,10 +47,12 @@ function PokemonList(props) {
     <div className="pokemon-list-wrapper">
       {loading ? <span>Loading...</span> :
         <>
-          <div>KANTO Region Pokemon</div>
+          <div className="pokemon-list-title">
+            <span>KANTO Region Pokemon</span>
+          </div>
 
           <div className="search-field">
-            <input type="search" placeholder="Search here..." onChange={props.onSearchChange} value={props.searchField}/>
+            <input className="search-field-input" type="search" placeholder="Search here..." onChange={props.onSearchChange} value={props.searchField}/>
           </div>
 
           <div className="pokemon-list-card-wrapper">
@@ -59,10 +61,10 @@ function PokemonList(props) {
               <div className="pokemon-list-card">
                 <img src={items.image} alt={items.name} />
                 <div className="pokemon-name">{items.name}</div>
-                <div className="pokemon-name">
+                <div className="pokemon-count">
                   Owned:
-                  {JSON.parse(localStorage.getItem(items.name)) == null ?
-                    "0" : JSON.parse(localStorage.getItem(items.name)).count}
+                  {JSON.parse(localStorage.getItem(items.name)) == null
+                    ? "0" : JSON.parse(localStorage.getItem(items.name)).count}
                 </div>
               </div>
             </Link>

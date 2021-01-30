@@ -1,8 +1,25 @@
 .pokemon-list-wrapper {
+  text-align: center;
+
+  .pokemon-list-title {
+    text-align: center;
+    margin: 20px 0px;
+  }
+
   .search-field {
-    border-radius: 15px;
     display: flex;
     justify-content: center;
+    margin: 20px 0px;
+
+    .search-field-input {
+      background-color: #dddddd;
+      border: 2px solid #f44336;
+      border-radius: 5px;
+      text-align: center;
+      width: 250px;
+      height: 30px;
+      font-size: 18px;
+    }
   }
 
   .pokemon-list-card-wrapper {
@@ -40,9 +57,15 @@
 
     .pokemon-name {
       font-weight: 700;
-      padding: 20px 0px;
+      padding-bottom: 10px;
       color: #000000;
       text-transform: capitalize;
+    }
+
+    .pokemon-count {
+      font-family: 'Hachi Maru Pop';
+      padding-bottom: 20px;
+
     }
   }
 

@@ -23,8 +23,20 @@ function MyList() {
     }
   }, [])
 
-  function onTest() {
-    console.log(ownPokemon);
+  function removePokemon(name, nickname) {
+    const deletePokemon = JSON.parse(localStorage.getItem(name));
+    let deleteNickname = deletePokemon.nickname;
+
+    deleteNickname.splice(deleteNickname.indexOf(nickname),1);
+    deletePokemon.nickname = deleteNickname;
+    deletePokemon.count--;
+
+    localStorage.removeItem(name);
+    if(deletePokemon.nickname.length!==0) {
+      localStorage.setItem(name, JSON.stringify(deletePokemon));
+    }
+
+    window.location.reload();
   }
 
   return (
@@ -32,9 +44,13 @@ function MyList() {
       <div className="my-list-card-wrapper">
         {ownPokemon.map((pokemon,i) => (
           <div className="pokemon-list-card" key={i}>
-            <div className="pokemon-name" onClick={onTest}>{pokemon.name}</div>
-            {pokemon.data.name.map((nickname, j) => (
-              <div key={j}>{nickname}</div>
+            <img src={pokemon.data.image} alt={pokemon.name}/>
+            <div className="pokemon-name">{pokemon.name}</div>
+            {pokemon.data.nickname.map((nickname, j) => (
+              <div key={j} className="pokemon-nickname">
+                <span>{nickname}</span>
+                <button onClick={() => removePokemon(pokemon.name, nickname)}>Delete</button>
+              </div>
             ))}
           </div>
         ))}

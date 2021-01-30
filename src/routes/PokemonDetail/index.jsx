@@ -16,7 +16,7 @@ function PokemonDetail() {
   const [isCaught, setIsCaught] = useState(false);
   const [failCounter, setFailCounter] = useState(0);
   const [pokemonNickname, setPokemonNickname] = useState('')
-  let nicknames = { 'name': [], 'count': 0 };
+  let nicknames = { 'nickname':[], 'count': 0, 'image': '' };
 
   const { loading, error, data } = useQuery(GET_SPEFICIC_POKEMON, {
     variables: {name: pokemonName},
@@ -59,22 +59,26 @@ function PokemonDetail() {
         setIsCaught(false);
         setFailCounter(0);
 
-        nicknames.name.push(pokemonNickname);
+        nicknames.nickname.push(pokemonNickname);
         nicknames.count++;
+        nicknames.image = pokemonImage;
+
         localStorage.setItem(pokemonName, JSON.stringify(nicknames));
         setCaptureMessage(`${pokemonNickname} has been added to storage!`);
 
       } else {
         nicknames = JSON.parse(localStorage.getItem(pokemonName));
 
-        if(nicknames.name.includes(pokemonNickname)) {
+        if(nicknames.nickname.includes(pokemonNickname)) {
           setCaptureMessage("Nickname for this pokemon already exist in you pokemon storage")
         } else {
           setIsCaught(false);
           setFailCounter(0);
 
-          nicknames.name.push(pokemonNickname);
+          nicknames.nickname.push(pokemonNickname);
           nicknames.count++;
+          nicknames.image = pokemonImage;
+
           localStorage.setItem(pokemonName, JSON.stringify(nicknames));
           setCaptureMessage(`${pokemonNickname} has been added to storage!`);
         }
