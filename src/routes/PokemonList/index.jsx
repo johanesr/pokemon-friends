@@ -1,34 +1,34 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { setSearchField } from '../../redux/module/actions';
+import { setSearchField, setCurrentPage } from '../../redux/module/actions';
 
 import { useQuery } from '@apollo/client';
 import { GET_POKEMONS } from '../../graphql/index';
+
+import PaginationBar from "../../components/PaginationBar";
 
 import './styles.scss';
 
 const mapStateToProps = (state) => {
   return {
     searchField: state.searchPokemon.searchField,
+    curPage: state.changePage.curPage
   }
 }
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    onSearchChange: (event) => dispatch(setSearchField(event.target.value.toLowerCase()))
+    onSearchChange: (event) => dispatch(setSearchField(event.target.value.toLowerCase())),
+    onChangePage: (num) => dispatch(setCurrentPage(num))
   }
 }
 
 function PokemonList(props) {
   const [pokemons, setPokemons] = useState([])
+  const [gqlVariable, setGqlVariable] = useState({limit:0, offset:0})
 
-  let gqlVariable = {
-    limit:151,
-    offset:0
-  };
-
-  const { loading, error, data } = useQuery(GET_POKEMONS, {
+  const { loading, error, data, refetch } = useQuery(GET_POKEMONS, {
     variables: gqlVariable
   })
 
@@ -40,6 +40,14 @@ function PokemonList(props) {
     }
   }, [loading, error, data])
 
+  useEffect(() => {
+    setGqlVariable({
+      limit: 10,
+      offset: props.curPage*10
+    })
+    refetch();
+  }, [props.curPage])
+
   const filteredPokemon = pokemons.filter(pokemons => {
     return pokemons.name.includes(props.searchField);
   })
@@ -49,7 +57,7 @@ function PokemonList(props) {
       {loading ? <span>Loading...</span> :
         <>
           <div className="pokemon-list-title">
-            <span>KANTO Region Pokemon</span>
+            <span>Pokemon List</span>
           </div>
 
           <div className="search-field">
@@ -71,9 +79,10 @@ function PokemonList(props) {
             </Link>
           ))}
           </div>
-
         </>
       }
+
+      <PaginationBar />
 
     </div>
   );
