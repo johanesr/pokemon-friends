@@ -13,23 +13,25 @@ function App() {
 
       <Header/>
 
-      <Switch>
-        <Route exact path="/">
-          <PokemonList />
-        </Route>
-        <Route path="/list">
-          <PokemonList />
-        </Route>
-        <Route  path="/detail/:pokemonName">
-          <PokemonDetail />
-        </Route>
-        <Route  path="/my-list">
-          <MyList />
-        </Route>
-        <Route path="*">
-          <NotFound />
-        </Route>
-      </Switch>
+      <main id="main">
+        <Switch>
+          <Route exact path="/">
+            <PokemonList />
+          </Route>
+          <Route path="/list">
+            <PokemonList />
+          </Route>
+          <Route  path="/detail/:pokemonName">
+            <PokemonDetail />
+          </Route>
+          <Route  path="/my-list">
+            <MyList />
+          </Route>
+          <Route path="*">
+            <NotFound />
+          </Route>
+        </Switch>
+      </main>
     </BrowserRouter>
   );
 }

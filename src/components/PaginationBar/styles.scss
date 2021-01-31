@@ -1,6 +1,12 @@
 .pagination-wrapper {
   text-align: center;
 
+  input {
+    width: 50px;
+    text-align: center;
+    font-size: 12px;
+  }
+
   .pagination {
     display: inline-block;
 
@@ -18,12 +24,6 @@
       background-color: #4CAF50;
       color: white;
       border: 1px solid #4CAF50;
-    }
-
-    input {
-      width: 50px;
-      text-align: center;
-      font-size: 12px;
     }
   }
 }

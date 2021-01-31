@@ -31,9 +31,13 @@ function PaginationBar(props) {
   return (
     <>
       <div className="pagination-wrapper">
+        <label>
+          Page:
+          <input onChange={changePageInput} placeholder={props.curPage + 1} />
+        </label>
         <div className="pagination">
           {props.curPage>0 && (<div onClick={() => changePageButton(-1)}>&laquo;</div>)}
-          <input onChange={changePageInput} placeholder={props.curPage + 1} />
+          <div>{props.curPage+1}</div>
           {props.curPage<111 && (<div onClick={() => changePageButton(1)}>&raquo;</div>)}
         </div>
       </div>

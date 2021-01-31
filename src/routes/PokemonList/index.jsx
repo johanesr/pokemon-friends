@@ -67,17 +67,23 @@ function PokemonList(props) {
           </div>
 
           <div className="search-field">
-            <input className="search-field-input" type="search" placeholder="Filter here..." onChange={props.onSearchChange} value={props.searchField}/>
+            <label>
+              Filter:
+              <input className="search-field-input" type="search" placeholder="Filter here..." onChange={props.onSearchChange} value={props.searchField}/>
+            </label>
           </div>
           <div className="search-field">
-            <input className="search-field-input" type="search" placeholder="Search here..." onKeyPress={findPokemon}/>
+            <label>
+              Search:
+              <input className="search-field-input" type="search" placeholder="Search here..." onKeyPress={findPokemon}/>
+            </label>
           </div>
 
           <div className="pokemon-list-card-wrapper">
           {filteredPokemon.map((items, i) => (
             <Link to={"/detail/" + items.name} key={i}>
               <div className="pokemon-list-card">
-                <img src={items.image} alt={items.name} />
+                <img width="96px" height="96px" src={items.image} alt={items.name} />
                 <div className="pokemon-name">{items.name}</div>
                 <div className="pokemon-count">
                   Owned:
