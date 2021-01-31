@@ -1,4 +1,3 @@
-import { useEffect } from 'react';
 import { connect } from 'react-redux';
 import { setCurrentPage } from "../../redux/module/actions";
 

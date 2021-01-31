@@ -52,6 +52,12 @@ function PokemonList(props) {
     return pokemons.name.includes(props.searchField);
   })
 
+  function findPokemon(e) {
+    if(e.key === 'Enter') {
+      window.location.href = "/detail/" + e.target.value;
+    }
+  }
+
   return (
     <div className="pokemon-list-wrapper">
       {loading ? <span>Loading...</span> :
@@ -61,7 +67,10 @@ function PokemonList(props) {
           </div>
 
           <div className="search-field">
-            <input className="search-field-input" type="search" placeholder="Search here..." onChange={props.onSearchChange} value={props.searchField}/>
+            <input className="search-field-input" type="search" placeholder="Filter here..." onChange={props.onSearchChange} value={props.searchField}/>
+          </div>
+          <div className="search-field">
+            <input className="search-field-input" type="search" placeholder="Search here..." onKeyPress={findPokemon}/>
           </div>
 
           <div className="pokemon-list-card-wrapper">

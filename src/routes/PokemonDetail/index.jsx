@@ -5,12 +5,14 @@ import { useQuery } from '@apollo/client';
 import { GET_SPEFICIC_POKEMON } from '../../graphql/index';
 
 import './styles.scss';
+import NotFound from "../NotFound";
 
 function PokemonDetail() {
   const [pokemonType, setPokemonType] = useState([]);
   const [pokemonImage, setPokemonImage] = useState('');
   const [pokemonMoves, setPokemonMoves] = useState([]);
   const {pokemonName} = useParams();
+  const [havePokemon, setHavePokemon] = useState(true);
 
   const [captureMessage, setCaptureMessage] = useState('');
   const [isCaught, setIsCaught] = useState(false);
@@ -19,16 +21,19 @@ function PokemonDetail() {
   let nicknames = { 'nickname':[], 'count': 0, 'image': '' };
 
   const { loading, error, data } = useQuery(GET_SPEFICIC_POKEMON, {
-    variables: {name: pokemonName},
+    variables: {name: pokemonName.toLowerCase()},
   });
 
   useEffect(() => {
-    if(data) {
+    if(data && data.pokemon.id) {
+      setHavePokemon(true);
       setPokemonImage(data.pokemon.sprites.front_default);
       setPokemonMoves(data.pokemon.moves);
       setPokemonType(data.pokemon.types);
     } else if(error) {
       console.log(error);
+    } else {
+      setHavePokemon(false);
     }
   }, [loading, error, data])
 
@@ -89,8 +94,8 @@ function PokemonDetail() {
   return (
     <div className="pokemon-detail-wrapper">
       {loading ? <span>Loading...</span> :
-
         <div className="pokemon-detail-card-wrapper">
+          {havePokemon ?
           <div className="pokemon-detail-card">
 
             <img
@@ -128,6 +133,7 @@ function PokemonDetail() {
             </div>
 
           </div>
+          : <NotFound />}
         </div>
       }
     </div>
