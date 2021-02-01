@@ -1,8 +1,10 @@
-import { render, screen } from '@testing-library/react';
+import { shallow } from 'enzyme';
 import App from './App';
 
-test('renders learn react link', () => {
-  render(<App />);
-  const linkElement = screen.getByText(/learn react/i);
-  expect(linkElement).toBeInTheDocument();
+it('renders app once', () => {
+  expect(shallow(<App />).length).toEqual(1);
 });
+
+// it("renders app correctly", () => {
+//   expect(shallow(<App />)).toMatchSnapshot(); // check if a component renders correctly
+// });

@@ -1,0 +1,57 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders PaginationBar correctly 1`] = `
+<Connect(PaginationBar)
+  store={
+    Object {
+      "clearActions": [Function],
+      "dispatch": [Function],
+      "getActions": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+    }
+  }
+>
+  <PaginationBar
+    curPage={0}
+    onChangePage={[Function]}
+    store={
+      Object {
+        "clearActions": [Function],
+        "dispatch": [Function],
+        "getActions": [Function],
+        "getState": [Function],
+        "replaceReducer": [Function],
+        "subscribe": [Function],
+      }
+    }
+  >
+    <div
+      className="pagination-wrapper"
+    >
+      <label>
+        Page:
+        <input
+          id="page-input"
+          onChange={[Function]}
+          placeholder={1}
+        />
+      </label>
+      <div
+        className="pagination"
+      >
+        <div>
+          1
+        </div>
+        <div
+          id="next-button"
+          onClick={[Function]}
+        >
+          »
+        </div>
+      </div>
+    </div>
+  </PaginationBar>
+</Connect(PaginationBar)>
+`;
