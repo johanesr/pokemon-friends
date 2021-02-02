@@ -35,6 +35,7 @@ function PokemonList(props) {
   useEffect( () => {
     if(data) {
       setPokemons(data.pokemons.results);
+      console.log(data);
     } else if(error) {
       console.log(error);
     }

@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders MyList Container correctly 1`] = `
+<MyList>
+  <div
+    className="my-list-wrapper"
+  >
+    <div
+      className="my-list-card-wrapper"
+    />
+  </div>
+</MyList>
+`;

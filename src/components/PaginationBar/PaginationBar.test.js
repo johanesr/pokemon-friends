@@ -1,4 +1,4 @@
-import { shallow, mount } from 'enzyme';
+import { mount } from 'enzyme';
 import PaginationBar from './index';
 
 import configureStore from 'redux-mock-store' //ES6 modules

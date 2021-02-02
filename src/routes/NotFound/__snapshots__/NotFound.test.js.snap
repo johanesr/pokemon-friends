@@ -1,0 +1,18 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders NotFound Container correctly 1`] = `
+<div
+  className="not-found-wrapper"
+>
+  <div>
+    Page is not found
+  </div>
+  <div>
+    <Link
+      to="/list"
+    >
+      Return to home page?
+    </Link>
+  </div>
+</div>
+`;
